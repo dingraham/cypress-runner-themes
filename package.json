@@ -1,0 +1,39 @@
+{
+  "name": "cypress-themes",
+  "version": "1.0.0",
+  "description": "Alternative themes for the Cypress Test Runner",
+  "main": "src/index.js",
+  "scripts": {
+    "bundle": "rollup -c",
+    "bundle:declaration": "tsc --emitDeclarationOnly -p ./tsconfig.build.json",
+    "bundle:lib": "rm -rf dist && npm run bundle && npm run bundle:declaration",
+    "cy:open": "cypress open --e2e"
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": [
+    "cypress",
+    "cypress.io",
+    "cypress-plugin",
+    "theme"
+  ],
+  "devDependencies": {
+    "cypress": "^13.6.6",
+    "prettier": "3.2.5"
+  },
+  "dependencies": {
+    "postcss": "^8.4.35",
+    "postcss-css-variables": "^0.19.0"
+  },
+  "author": "David Ingraham",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dingraham/cypress-themes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dingraham/cypress-themes/issues"
+  },
+  "homepage": "https://github.com/Dingraham/cypress-themes#readme"
+}
