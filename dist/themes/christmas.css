@@ -1,0 +1,88 @@
+:root {
+  --main-background-color: #165B33;
+  --highlight-background-color:#85141a;
+  --text-color: #dbc388;
+  --light-text-color: #fff8e6; 
+  --header-color: #fff8e6; 
+  --border-color: #85a885;
+  --hover-text-color: #85a885;
+
+}
+
+/* Test runner main background */
+main, body, .bg-white {
+  background-color: var(--main-background-color) !important;
+}
+
+.bg-gray-50 {
+  background-color: var(--highlight-background-color) !important;
+}
+
+.text-gray-300, .text-gray-400, .text-gray-500, .text-gray-600, .text-gray-700, .text-gray-800, .text-gray-900 {
+  color: var(--light-text-color) !important;
+}
+
+.icon-dark-gray-600 > *[fill].icon-dark {
+  fill: var(--light-text-color) !important;
+}
+
+.icon-dark-white > *[fill].icon-dark, *[fill].icon-dark-gray-500, .icon-light-gray-50 > *[fill].icon-light {
+  fill: var(--highlight-background-color) !important;
+}
+
+.icon-light-gray-400 > *[stroke].icon-light {
+  stroke: var(--light-text-color) !important;
+}
+
+.border-gray-50, .border-gray-100, .border-b-gray-100 {
+  border-color: var(--border-color) !important;
+}
+
+.bg-gray-1000 {
+  background-color: var(--highlight-background-color) !important;
+}
+
+[data-cy="sidebar"] {
+  border-right-width: 1px;
+  border-color: var(--border-color) !important;
+}
+
+
+[data-cy="aut-url"], [data-cy="aut-url-input"] {
+  background-color: var(--main-background-color) !important;
+}
+
+[data-cy="header-bar-content"] {
+  color: var(--header-color) !important;
+}
+
+[id="spec-filter"] {
+  background-color: var(--main-background-color) !important;
+}
+.reporter header, .reporter .runnable, .reporter .container, .reporter .runnable-header, .reporter .command-wrapper, .reporter table {
+    background-color: var(--main-background-color) !important;
+    color: var(--text-color) !important;
+}
+
+.reporter .command-state-passed .command-message {
+  color: var(--text-color) !important;
+}
+
+/* Iframe background */
+.h-0 {
+  background-color: var(--highlight-background-color);
+  height: 700px !important;
+}
+
+/* Selected item */
+.hover\:bg-indigo-50:hover {
+  background-color: var(--hover-text-color) !important;
+}
+
+.border-b-gray-50 {
+  border-bottom-color: var(--border-color) !important;
+}
+
+.text-indigo-500 {
+  color: var(--text-color) !important;
+}

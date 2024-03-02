@@ -4,10 +4,7 @@
   "description": "Alternative themes for the Cypress Test Runner",
   "main": "src/index.js",
   "scripts": {
-    "bundle": "rollup -c",
-    "bundle:declaration": "tsc --emitDeclarationOnly -p ./tsconfig.build.json",
-    "bundle:lib": "rm -rf dist && npm run bundle && npm run bundle:declaration",
-    "cy:open": "cypress open --e2e"
+    "cy:open": "cypress open --e2e --browser chrome"
   },
   "files": [
     "src"
@@ -20,9 +17,10 @@
   ],
   "devDependencies": {
     "cypress": "^13.6.6",
-    "prettier": "3.2.5"
+    "prettier": "3.2.5",
   },
   "dependencies": {
+    "path": "^0.12.7",
     "postcss": "^8.4.35",
     "postcss-css-variables": "^0.19.0"
   },

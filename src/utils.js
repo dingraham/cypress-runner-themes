@@ -6,15 +6,12 @@ const convertCssVariables = (mycss) => postcss([cssVariables()]).process(mycss).
 
 const getHead = () => Cypress.$(parent.window.document.head);
 
-const isThemeLoaded = ($head) => $head.find('#cypress-custom-mode').length > 0;
+const isThemeLoaded = ($head) => $head.find('#cypress-themes').length > 0;
 
-const getSourceFolder = () => 'node_modules/@dispatchhealth/cypress-shared/dist/themes';
+// const getSourceFolder = () => 'node_modules/cypress-themes/dist/themes';
+const getSourceFolder = () => 'src/themes';
 
-/**
- * returns a function that a `before` callback can call to load desired theme
- * @example before(loadTheme())
- */
-const CURRENT_THEMES = ['dark', 'halloween', 'christmas'];
+const CURRENT_THEMES = ['colorblind', 'dark', 'light'];
 
 const loadTheme = () => {
   return () => {
@@ -26,13 +23,17 @@ const loadTheme = () => {
 
     // Load theme if exists and supported
     const currentTheme = Cypress.env('theme');
+    // Support different spellings
+    if (currentTheme === 'colourblind') {
+        currentTheme ='colorblind'
+    }
     if (currentTheme && CURRENT_THEMES.includes(currentTheme.toLowerCase())) {
       const themeFilename = join(getSourceFolder(), `${currentTheme.toLowerCase()}.css`);
 
       cy.readFile(themeFilename, { log: false })
         .then(convertCssVariables)
         .then((css) => {
-          $head.append(`<style type="text/css" id="cypress-custom-mode">\n${css}</style>`);
+          $head.append(`<style type="text/css" id="cypress-themes">\n${css}</style>`);
         });
     } else {
       cy.log("Env Theme either not provided or doesn't match list of known themes");
@@ -41,4 +42,4 @@ const loadTheme = () => {
   };
 };
 
-before(loadTheme());
+export default loadTheme

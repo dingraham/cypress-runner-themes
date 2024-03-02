@@ -1,0 +1,94 @@
+:root {
+  --main-background-color: #000000;
+  --highlight-background-color: #cc5e14;
+  --text-color: #963f3f;
+  --light-text-color: #ebd796;
+  --header-color: ##75330d;
+  --border-color: #9c0606;
+  --hover-text-color: #eadede;
+  --pass-color: #d4af37;
+  --light-pass-color: #f6db82;
+  --fail-color: #ad017c;
+  --light-fail-color: #e76ea4;
+}
+
+/* Pass */
+.reporter
+  .command-name-assert
+  .command-state-passed
+  .command-message
+  .command-message-text {
+  color: var(--pass-color) !important;
+}
+.reporter .command-name-assert .command-state-passed .command-method span {
+  color: black;
+  background-color: var(--pass-color) !important;
+}
+.reporter
+  .command-name-assert
+  .command-state-passed
+  .command-message
+  .command-message-text
+  strong {
+  color: var(--light-pass-color) !important;
+}
+.runnable-passed .runnable-wrapper {
+  border-left: 4px solid var(--pass-color) !important;
+}
+.runnables-region .runnable-passed .runnable-wrapper {
+  border-left: 4px solid var(--pass-color) !important;
+}
+.runnables-region .runnable-passed .runnable-instruments {
+  border-left: 4px solid var(--pass-color) !important;
+}
+.passed .icon-dark {
+  stroke: var(--pass-color) !important;
+}
+.runnables-region .runnable-passed .icon-dark {
+  stroke: var(--pass-color) !important;
+}
+.command-message-indicator-successful {
+  color: var(--pass-color) !important;
+}
+
+/* Fail */
+.reporter
+  .command-name-assert
+  .command-state-failed
+  .command-message
+  .command-message-text {
+  color: var(--fail-color) !important;
+}
+.reporter .command-name-assert .command-state-failed .command-method span {
+  color: black;
+  background-color: var(--fail-color) !important;
+}
+.reporter
+  .command-name-assert
+  .command-state-failed
+  .command-message
+  .command-message-text
+  strong {
+  color: var(--light-fail-color) !important;
+}
+.runnable-err-message {
+  color: var(--fail-color) !important;
+}
+.runnable-failed .runnable-wrapper {
+  border-left: 4px solid var(--fail-color) !important;
+}
+.runnables-region .runnable-failed .runnable-wrapper {
+  border-left: 4px solid var(--fail-color) !important;
+}
+.reporter .runnable.runnable-failed .runnable-instruments {
+  border-left: 4px solid var(--fail-color) !important;
+}
+.failed .icon-dark {
+  stroke: var(--fail-color) !important;
+}
+.runnables-region .runnable-failed .runnable-state-icon {
+  stroke: var(--fail-color) !important;
+}
+.command-message-indicator-failed {
+  color: var(--fail-color) !important;
+}
