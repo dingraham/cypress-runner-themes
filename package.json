@@ -6,9 +6,6 @@
   "scripts": {
     "cy:open": "cypress open --e2e --browser chrome"
   },
-  "files": [
-    "src"
-  ],
   "keywords": [
     "cypress",
     "cypress.io",
@@ -17,7 +14,7 @@
   ],
   "devDependencies": {
     "cypress": "^13.6.6",
-    "prettier": "3.2.5",
+    "prettier": "3.2.5"
   },
   "dependencies": {
     "path": "^0.12.7",
@@ -28,10 +25,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dingraham/cypress-themes.git"
+    "url": "git+https://github.com/dingraham/cypress-themes.git"
   },
   "bugs": {
-    "url": "https://github.com/Dingraham/cypress-themes/issues"
+    "url": "https://github.com/dingraham/cypress-themes/issues"
   },
-  "homepage": "https://github.com/Dingraham/cypress-themes#readme"
+  "homepage": "https://github.com/dingraham/cypress-themes#readme"
 }

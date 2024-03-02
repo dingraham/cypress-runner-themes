@@ -1,11 +1,4 @@
 :root {
-  --main-background-color: #000000;
-  --highlight-background-color: #cc5e14;
-  --text-color: #963f3f;
-  --light-text-color: #ebd796;
-  --header-color: ##75330d;
-  --border-color: #9c0606;
-  --hover-text-color: #eadede;
   --pass-color: #d4af37;
   --light-pass-color: #f6db82;
   --fail-color: #ad017c;
@@ -13,6 +6,7 @@
 }
 
 /* Pass */
+/* Test Runner */
 .reporter
   .command-name-assert
   .command-state-passed
@@ -50,9 +44,28 @@
 .command-message-indicator-successful {
   color: var(--pass-color) !important;
 }
+/* Specs */
+svg[data-cy-run-status="PASSED"] > circle {
+  fill: var(--pass-color) !important;
+}
 
+/* Runs / Debug */
+.icon-dark-jade-400 > *[fill].icon-dark { 
+  fill: var(--pass-color) !important;
+}
+.text-jade-400 { 
+  color: var(--pass-color) !important;
+}
+
+
+.icon-dark-jade-400 > *[stroke].icon-dark  {
+  stroke: var(--pass-color) !important;
+  fill: var(--pass-color) !important;
+}
+
+/* TBD Cleanup - Do we need to change the failed colors */
 /* Fail */
-.reporter
+/* .reporter
   .command-name-assert
   .command-state-failed
   .command-message
@@ -91,4 +104,4 @@
 }
 .command-message-indicator-failed {
   color: var(--fail-color) !important;
-}
+} */
