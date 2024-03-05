@@ -274,7 +274,7 @@ pre[class*="language-"] {
   .runnable-wrapper
   .collapsible-header:focus
   .collapsible-header-inner {
-  background-color: var(--wrapper-background-color) !important; 
+  background-color: var(--wrapper-background-color) !important;
   outline: 1px solid var(--spec-list-color) !important;
   outline-offset: -1px;
 }
@@ -434,4 +434,9 @@ pre[class*="language-"] {
 
 .reporter ::selection {
   background-color: #b7e7f0 !important;
+}
+
+/* Cypress API Plugin */
+[id="api-view"] {
+  background-color: var(--main-background-color) !important;
 }

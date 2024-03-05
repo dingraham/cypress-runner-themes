@@ -1,12 +1,12 @@
 require("../../src");
 
 describe("test", () => {
-  it("test", () => {
-    cy.visit("https://nhl.com");
-  });
-
   it("passes", () => {
     expect(true).to.be.eq(true);
+  });
+
+  it("visit site", () => {
+    cy.visit("https://nhl.com");
   });
 
   it("fails", () => {

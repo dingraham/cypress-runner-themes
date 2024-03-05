@@ -62,7 +62,12 @@ svg[data-cy-run-status="PASSED"] > circle {
   fill: var(--pass-color) !important;
 }
 
-/* TBD Cleanup - Do we need to change the failed colors or is default ok? */
+/** Cypress API Plugin */
+.text-cy-green {
+  color: var(--pass-color) !important;
+}
+
+/* TODO: Cleanup - Do we need to change the failed colors or is default ok? */
 /* Fail */
 /* .reporter
   .command-name-assert

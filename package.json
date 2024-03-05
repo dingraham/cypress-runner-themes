@@ -14,6 +14,7 @@
   ],
   "devDependencies": {
     "cypress": "^13.6.6",
+    "cypress-plugin-api": "^2.11.1",
     "prettier": "3.2.5"
   },
   "dependencies": {

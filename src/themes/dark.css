@@ -107,7 +107,6 @@ body,
   color: var(--text-color) !important;
 }
 
-/* Promo text 
-[data-cy="promo-header-title"] [data-cy="promo-header-description"] {
-  color: var(--text-color) !important;
-} */
+[data-cy="playground-selector"] {
+  background-color: var(--highlight-background-color);
+}
