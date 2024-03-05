@@ -33,9 +33,11 @@ npm install --save-dev cypress-themes
 
 To enable any of the themes, set the `theme` env var in your `cypress.config.js` file
 
+The acceptable theme values are `dark`, `light`, and `colorblind`.
+
 ```json
 env: {
-    theme: "dark", // or "light"/"colorblind"
+    theme: "dark",
 },
 ```
 
