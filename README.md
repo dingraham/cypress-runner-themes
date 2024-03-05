@@ -36,10 +36,8 @@ To enable any of the themes, set the `theme` env var in your `cypress.config.js`
 The acceptable theme values are `dark`, `light`, and `colorblind`.
 
 ```json
-{
-    env: {
-        theme: "dark",
-    }
+"env": {
+    "theme": "dark",
 }
 ```
 
