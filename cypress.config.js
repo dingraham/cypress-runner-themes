@@ -9,6 +9,6 @@ module.exports = defineConfig({
   },
   env: 
   {
-    theme: 'colorblind'
+    theme: 'light'
   }
 })

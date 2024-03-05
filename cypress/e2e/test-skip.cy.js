@@ -1,7 +1,7 @@
-require('../../src')
+require("../../src");
 
-describe('test', () => {
-    it.skip('skips', () => {
-        expect(true).to.be.eq(false)
-    })
-})
+describe("test", () => {
+  it.skip("skips", () => {
+    expect(true).to.be.eq(false);
+  });
+});

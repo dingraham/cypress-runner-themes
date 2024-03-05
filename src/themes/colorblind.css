@@ -50,20 +50,19 @@ svg[data-cy-run-status="PASSED"] > circle {
 }
 
 /* Runs / Debug */
-.icon-dark-jade-400 > *[fill].icon-dark { 
+.icon-dark-jade-400 > *[fill].icon-dark {
   fill: var(--pass-color) !important;
 }
-.text-jade-400 { 
+.text-jade-400 {
   color: var(--pass-color) !important;
 }
 
-
-.icon-dark-jade-400 > *[stroke].icon-dark  {
+.icon-dark-jade-400 > *[stroke].icon-dark {
   stroke: var(--pass-color) !important;
   fill: var(--pass-color) !important;
 }
 
-/* TBD Cleanup - Do we need to change the failed colors */
+/* TBD Cleanup - Do we need to change the failed colors or is default ok? */
 /* Fail */
 /* .reporter
   .command-name-assert

@@ -1,95 +1,437 @@
 :root {
   --main-background-color: #f8f9ff;
-  --highlight-background-color: #1b1e2e;
-  --text-color: #2a2a2b;
-  --light-text-color: #757576;
-  --header-color: #050505;
-  --border-color: #2f3ab0;
-  --hover-text-color: #2a2a2b;
+  --highlight-background-color: #e1e3ed;
+  --wrapper-background-color: #fff;
+  --spec-list-color: #2f3ab0;
+  --passed-color: #00814d;
+  --text-color: #2e3247;
+  /* TODO: Convert all hex values below into vars */
 }
 
 /* Test runner main background */
-main, body, .bg-white {
+.reporter {
+  border-right: var(--highlight-background-color) !important;
+}
+
+.reporter,
+.reporter header,
+.reporter .container,
+.reporter .runnable-header,
+.reporter .commands-container,
+.reporter .runnable,
+.reporter .testing-preferences-header {
   background-color: var(--main-background-color) !important;
 }
 
-.bg-gray-50 {
+.reporter .command-wrapper {
+  background-color: var(--wrapper-background-color) !important;
+}
+
+.reporter header button:hover,
+.reporter .controls .testing-preferences-toggle.open {
+  background-color: var(--main-background-color) !important;
+}
+
+.reporter
+  *:not(button):not([class*="command-state"]):not(.runnable-err):not(
+    .test-err-code-frame *
+  ) {
+  color: var(--text-color) !important;
+}
+
+.reporter .no-tests {
+  background-color: var(--main-background-color) !important;
+}
+
+.reporter .wrap {
+  border-color: var(--highlight-background-color) !important;
+}
+
+.reporter .runnable-title,
+.reporter strong,
+.reporter .stats li .num {
+  color: #434861 !important;
+}
+
+.reporter .command-name-assert .command-state-passed .command-message strong {
+  color: var(--passed-color) !important;
+}
+
+.reporter .command-state-passed,
+.reporter .runnable.runnable-passed > div > .runnable-wrapper,
+.reporter .runnable.runnable-passed > div > .runnable-instruments {
+  border-color: var(--passed-color) !important;
+}
+
+.reporter .command-name-assert .command-state-failed .command-message strong {
+  color: #c62b49 !important;
+}
+.reporter .command-wrapper .command-alias.agent,
+.reporter .command-wrapper .command-alias.primitive,
+.reporter .command-wrapper .command-interceptions.agent,
+.reporter .command-wrapper .command-interceptions.primitive {
+  background-color: #f0f1ff;
+}
+
+.reporter .command-name-assert .command-state-pending .command-message strong {
+  color: #9aa2fc !important;
+}
+
+.reporter .runnable-header .icon-light {
+  fill: #f3f4fa;
+}
+
+.reporter .runnable-header .icon-dark {
+  stroke: #bfc2d4;
+}
+
+.reporter .runnable-header:before,
+.reporter .runnable-header:after {
   background-color: var(--highlight-background-color) !important;
 }
 
-.text-gray-300, .text-gray-400, .text-gray-500, .text-gray-600, .text-gray-700, .text-gray-800, .text-gray-900 {
-  color: var(--light-text-color) !important;
+.reporter .command-name-assert .command-state-passed .command-method span {
+  background-color: #c2f1de !important;
 }
 
-.icon-dark-gray-600 > *[fill].icon-dark {
-  fill: var(--light-text-color) !important;
+.reporter .collapsible-content *:not(.test-err-code-frame *) {
+  color: #434861 !important;
 }
 
-[data-cy="aut-panel"] {
-  background-color: var(--main-background-color) !important;
+.reporter .collapsible-content .runnable-err {
+  background-color: #fbeff1 !important;
 }
 
-.icon-dark-white > *[fill].icon-dark, *[fill].icon-dark-gray-500, .icon-light-gray-50 > *[fill].icon-light {
-  fill: var(--highlight-background-color) !important;
+.reporter .command-name-assert .command-state-failed .command-method span {
+  background-color: #fad9df !important;
 }
 
-.icon-light-gray-400 > *[stroke].icon-light {
-  stroke: var(--light-text-color) !important;
+.reporter .command-wrapper .command-alias.dom,
+.reporter .command-wrapper .command-interceptions.dom,
+.reporter .command-name-assert .command-state-pending .command-method span {
+  background-color: #f0f1ff;
 }
 
-.border-gray-50, .border-gray-100, .border-b-gray-100 {
-  border-color: var(--border-color) !important;
+.reporter .num-children,
+.reporter .num-elements {
+  background-color: #f3f4fa;
 }
 
-.bg-gray-1000 {
+.reporter .command-wrapper.command-is-interactive:hover,
+.reporter button:hover,
+.reporter .collapsible-header-inner:hover,
+.reporter .hooks-container .hook-header:hover {
+  background-color: #f3f4fa !important;
+  cursor: pointer;
+}
+
+.reporter .runnable-err .collapsible-header-inner:hover {
+  background-color: #fad9df !important;
+}
+
+.reporter
+  .runnable-err-stack-expander
+  .collapsible-header:hover
+  .collapsible-indicator
+  .icon-dark {
+  stroke: #9f1331;
+}
+
+.reporter .instruments-container .instrument-content {
+  background-color: white;
+}
+
+.reporter .command-pin {
+  color: var(--highlight-background-color) !important;
+}
+
+.reporter .no-commands {
+  background-color: #f3f4fa;
+}
+
+.reporter .stats,
+.reporter .controls,
+.reporter .controls button,
+.reporter .runnable-header .duration {
+  border-color: #d0d2e0 !important;
+}
+
+#unified-reporter .toggle-specs-wrapper * {
+  color: #434861 !important;
+}
+
+.reporter .runnable.suite > div > .runnable-wrapper .runnable-title {
+  color: #434861 !important;
+}
+
+.reporter .command-pin {
+  position: relative;
+  top: 3px;
+}
+
+.reporter .command-pin path.icon-light {
+  fill: #f3f4fa !important;
+  position: relative;
+  top: 3px;
+}
+
+.reporter .test-err-code-frame {
+  background-color: #f3f4fa;
+}
+
+.reporter .test-err-code-frame .runnable-err-file-path {
+  background-color: rgba(225, 227, 237, 0.5);
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background-color: #f3f4fa;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #747994;
+  margin: 0;
+  text-shadow: 0px 1px var(--wrapper-background-color) !important;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #f3f4fa;
+}
+
+.token.punctuation {
+  color: #747994;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #9f1331;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #005f39;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.regex,
+.token.important,
+.token.variable {
+  color: #963f00;
+  background: #f3f4fa;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword,
+.token.function,
+.token.class-name {
+  color: #3a46cc;
+}
+
+.line-numbers-rows > span:before {
+  color: #d0d2e0;
+}
+
+.line-highlight {
+  background: linear-gradient(
+    to right,
+    rgba(46, 50, 71, 0.1) 100%,
+    rgba(46, 50, 71, 0)
+  );
+}
+
+.runnable-err a {
+  color: #4956e3;
+}
+
+.runnable-err a:hover,
+.runnable-err a:active,
+.runnable-err a:focus {
+  color: var(--spec-list-color) !important;
+}
+
+.runnable-err .runnable-err-file-path .icon-light {
+  fill: #c5c9fd;
+}
+
+.reporter
+  .runnable
+  .runnable-wrapper
+  .collapsible-header:focus
+  .collapsible-header-inner {
+  background-color: var(--wrapper-background-color) !important; 
+  outline: 1px solid var(--spec-list-color) !important;
+  outline-offset: -1px;
+}
+
+.reporter .attempt-name:before {
+  border-top-color: var(--highlight-background-color) !important;
+}
+
+.reporter .attempt-name .attempt-tag {
+  background: var(--wrapper-background-color) !important;
+  border-color: var(--highlight-background-color) !important;
+}
+
+.reporter .attempt-name .attempt-tag:hover {
+  background-color: #f3f4fa;
+}
+
+.reporter .attempt-item > .collapsible:before {
+  border-left-color: var(--highlight-background-color) !important;
+}
+
+.testing-preferences .testing-preferences-header:before,
+.testing-preferences .testing-preferences-header:after {
   background-color: var(--highlight-background-color) !important;
 }
 
-[data-cy="sidebar"] {
-  border-right-width: 1px;
-  border-color: var(--border-color) !important;
+.reporter .no-tests hr {
+  background-color: var(--highlight-background-color) !important;
 }
 
-[data-cy="aut-url"], [data-cy="aut-url-input"] {
+.reporter
+  *:not(button):not([class*="command-state"]):not(.runnable-err):not(
+    .test-err-code-frame *
+  )
+  .no-tests
+  a {
+  color: #3a46cc;
+}
+
+.reporter
+  *:not(button):not([class*="command-state"]):not(.runnable-err):not(
+    .test-err-code-frame *
+  )
+  .no-tests
+  a
+  h3 {
+  color: currentColor;
+}
+
+.reporter
+  *:not(button):not([class*="command-state"]):not(.runnable-err):not(
+    .test-err-code-frame *
+  )
+  .no-tests
+  h2 {
+  color: #c62b49;
+}
+
+.reporter
+  *:not(button):not([class*="command-state"]):not(.runnable-err):not(
+    .test-err-code-frame *
+  )
+  .no-tests
+  h2
+  svg
+  path {
+  fill: #c62b49;
+}
+
+#cypress-theme-toggle {
+  border: 1px solid #d0d2e0;
+  border-radius: 6px;
+  height: 24px;
+  padding: 0 6px;
+  line-height: 0;
+  color: #5a5f7a;
+}
+
+[data-cy="specs-list-panel"] .bg-gray-1000 {
   background-color: var(--main-background-color) !important;
 }
 
-[data-cy="header-bar-content"] {
-  color: var(--header-color) !important;
+[data-cy="specs-list-panel"] .text-gray-1000 {
+  color: var(--wrapper-background-color) !important;
 }
-
-[id="spec-filter"] {
-  background-color: var(--main-background-color) !important;
+[data-cy="specs-list-panel"] .text-gray-900 {
+  color: var(--highlight-background-color) !important;
 }
-.reporter header, .reporter .runnable, .reporter .container, .reporter .runnable-header, .reporter .command-wrapper, .reporter table {
-    background-color: var(--main-background-color) !important;
-    color: var(--text-color) !important;
+[data-cy="specs-list-panel"] .text-gray-800 {
+  color: #d0d2e0 !important;
 }
-
-.reporter .command-state-passed .command-message {
+[data-cy="specs-list-panel"] .text-gray-700 {
+  color: #5a5f7a !important;
+}
+[data-cy="specs-list-panel"] .text-gray-600 {
+  color: #747994 !important;
+}
+[data-cy="specs-list-panel"] .text-gray-500 {
+  color: #434861 !important;
+}
+[data-cy="specs-list-panel"] .text-gray-400 {
+  color: #434861 !important;
+}
+[data-cy="specs-list-panel"] .text-gray-300 {
   color: var(--text-color) !important;
 }
-
-/* Iframe background */
-.h-0 {
-  background-color: var(--highlight-background-color);
-  height: 700px !important;
-}
-
-/* Selected item */
-.hover\:bg-indigo-50:hover {
-  background-color: var(--hover-text-color) !important;
-}
-
-.border-b-gray-50 {
-  border-bottom-color: var(--border-color) !important;
-}
-
-.text-indigo-500 {
+[data-cy="specs-list-panel"] .text-gray-200 {
   color: var(--text-color) !important;
 }
+[data-cy="specs-list-panel"] .text-gray-100 {
+  color: #1b1e2e !important;
+}
+[data-cy="specs-list-panel"] .text-gray-50 {
+  color: #1b1e2e !important;
+}
 
-/* Promo text 
-[data-cy="promo-header-title"] [data-cy="promo-header-description"] {
-  color: var(--text-color) !important;
-} */
+[data-cy="specs-list-panel"] .text-white {
+  color: black !important;
+}
+[data-cy="specs-list-panel"] .text-black {
+  color: var(--wrapper-background-color) !important;
+}
+
+[data-cy="specs-list-panel"] svg {
+  filter: invert(100%) hue-rotate(180deg);
+}
+[data-cy="specs-list-panel"] .bg-gradient-to-b {
+  display: none;
+}
+[data-cy="specs-list-panel"] .focus-visible\\:bg-gray-900:focus-visible {
+  background-color: var(--highlight-background-color) !important;
+}
+[data-cy="specs-list-panel"] .border-gray-900 {
+  border-color: var(--highlight-background-color) !important;
+}
+[data-cy="specs-list-panel"] .hocus\\:border-indigo-300:hover,
+[data-cy="specs-list-panel"] .hocus\\:border-indigo-300:focus {
+  border-color: var(--spec-list-color) !important;
+}
+[data-cy="specs-list-panel"] .force-dark,
+#unified-reporter.force-dark {
+  color-scheme: light;
+}
+[data-cy="specs-list-panel"] .group:hover .group-hover\\:text-indigo-300 {
+  color: var(--spec-list-color) !important;
+}
+[data-cy="specs-list-panel"] .group:focus .group-focus\\:text-indigo-300 {
+  color: var(--spec-list-color) !important;
+}
+[data-cy="specs-list-panel"] .before\\:border-r-indigo-300::before {
+  border-color: var(--spec-list-color) !important;
+}
+[data-cy="specs-list-panel"]
+  .before\\:hover\\:border-r-indigo-300:hover::before {
+  border-color: var(--spec-list-color) !important;
+}
+
+.reporter ::selection {
+  background-color: #b7e7f0 !important;
+}

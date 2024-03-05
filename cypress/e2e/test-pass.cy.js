@@ -1,7 +1,7 @@
-require('../../src')
+require("../../src");
 
-describe('test', () => {
-    it('passes', () => {
-        expect(true).to.be.eq(true)
-    })
-})
+describe("test", () => {
+  it("passes", () => {
+    expect(true).to.be.eq(true);
+  });
+});

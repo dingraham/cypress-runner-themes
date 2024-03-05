@@ -9,7 +9,9 @@
 }
 
 /* Test runner main background */
-main, body, .bg-white {
+main,
+body,
+.bg-white {
   background-color: var(--main-background-color) !important;
 }
 
@@ -17,7 +19,13 @@ main, body, .bg-white {
   background-color: var(--highlight-background-color) !important;
 }
 
-.text-gray-300, .text-gray-400, .text-gray-500, .text-gray-600, .text-gray-700, .text-gray-800, .text-gray-900 {
+.text-gray-300,
+.text-gray-400,
+.text-gray-500,
+.text-gray-600,
+.text-gray-700,
+.text-gray-800,
+.text-gray-900 {
   color: var(--light-text-color) !important;
 }
 
@@ -29,7 +37,9 @@ main, body, .bg-white {
   background-color: var(--main-background-color) !important;
 }
 
-.icon-dark-white > *[fill].icon-dark, *[fill].icon-dark-gray-500, .icon-light-gray-50 > *[fill].icon-light {
+.icon-dark-white > *[fill].icon-dark,
+*[fill].icon-dark-gray-500,
+.icon-light-gray-50 > *[fill].icon-light {
   fill: var(--highlight-background-color) !important;
 }
 
@@ -37,7 +47,9 @@ main, body, .bg-white {
   stroke: var(--light-text-color) !important;
 }
 
-.border-gray-50, .border-gray-100, .border-b-gray-100 {
+.border-gray-50,
+.border-gray-100,
+.border-b-gray-100 {
   border-color: var(--border-color) !important;
 }
 
@@ -50,7 +62,8 @@ main, body, .bg-white {
   border-color: var(--border-color) !important;
 }
 
-[data-cy="aut-url"], [data-cy="aut-url-input"] {
+[data-cy="aut-url"],
+[data-cy="aut-url-input"] {
   background-color: var(--main-background-color) !important;
 }
 
@@ -61,9 +74,14 @@ main, body, .bg-white {
 [id="spec-filter"] {
   background-color: var(--main-background-color) !important;
 }
-.reporter header, .reporter .runnable, .reporter .container, .reporter .runnable-header, .reporter .command-wrapper, .reporter table {
-    background-color: var(--main-background-color) !important;
-    color: var(--text-color) !important;
+.reporter header,
+.reporter .runnable,
+.reporter .container,
+.reporter .runnable-header,
+.reporter .command-wrapper,
+.reporter table {
+  background-color: var(--main-background-color) !important;
+  color: var(--text-color) !important;
 }
 
 .reporter .command-state-passed .command-message {
