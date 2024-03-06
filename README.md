@@ -19,7 +19,23 @@ As the test runner changes over-time, the themes may break unexpectedly. For any
 ![](images/light-test.png)
 ![](images/light-runs.png)
 
-### Colorblind
+### Colorblind (Red/Green)
+
+The three main types of color blindness are
+- Deutan (red/green)
+- Protan (red/green)
+- Tritan (blue/green and yellow/red)
+
+By replacing green with yellow, now the Cypress test results will show up as
+- Yellow (passing)
+- Red (failing)
+- Blue (skipped)
+
+This color combination addresses those with Deutan and Protan color-blindness. 
+Those with sensitivity to red/yellow should keep the default Cypress test result colors.
+
+If there is another case that isn't covered please let me know and I will add a theme for it. 
+
 ![](images/colorblind-test.png)
 ![](images/colorblind-runs.png)
 
