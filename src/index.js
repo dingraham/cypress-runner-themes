@@ -1,3 +1,3 @@
 import loadTheme from "./utils";
 
-after(loadTheme());
+before(loadTheme());
