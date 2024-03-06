@@ -60,4 +60,4 @@ Finally, run the cypress test runner `npm run cy:open`
 - [ ] Apply theme on runner load, not before a test begins
 - [ ] Support cypress-plugin-api
 - [ ] Remove "Colorblind" as explicit theme and allow toggle ability within runner
-- [ ] Migrate over the fun Halloween mode from [cypress-dark](https://github.com/bahmutov/cypress-dark
+- [ ] Migrate over the fun Halloween mode from [cypress-dark](https://github.com/bahmutov/cypress-dark)
