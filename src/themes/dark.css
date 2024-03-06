@@ -1,6 +1,6 @@
 :root {
   --main-background-color: #121212;
-  --highlight-background-color: #121212;
+  --highlight-background-color: #222222;
   --text-color: #bb86fc;
   --light-text-color: #bb86fc;
   --header-color: #a62ac9;
@@ -34,7 +34,7 @@ body,
 }
 
 [data-cy="aut-panel"] {
-  background-color: var(--main-background-color) !important;
+  background-color: var(--highlight-background-color) !important;
 }
 
 .icon-dark-white > *[fill].icon-dark,
@@ -86,6 +86,11 @@ body,
 
 .reporter .command-state-passed .command-message {
   color: var(--text-color) !important;
+}
+
+.reporter {
+  border-right-width: 1px;
+  border-color: var(--border-color) !important;
 }
 
 /* Iframe background */

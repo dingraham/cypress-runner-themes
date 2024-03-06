@@ -13,15 +13,18 @@ As the test runner changes over-time, the themes may break unexpectedly. For any
 
 ### Dark
 
-// Add images here
+![](images/dark-test.png)
+![](images/dark-runs.png)
 
 ### Light
 
-// Add images here
+![](images/light-test.png)
+![](images/light-runs.png)
 
 ### Colorblind
 
-// Add images here
+![](images/colorblind-test.png)
+![](images/colorblind-runs.png)
 
 ## Install
 
@@ -61,4 +64,6 @@ For local development, install all dependencies (`npm install`) and change the `
 const getThemesFolder = () => "src/themes"; // Enable for local development
 ```
 
-Finally, change the `theme` env var within the `cypress.config.js` and run the cypress test runner `npm run cy:open`
+Next, change the `theme` env var within the `cypress.config.js` to whatever you are testing.
+
+Finally, run the cypress test runner `npm run cy:open`

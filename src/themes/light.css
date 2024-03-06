@@ -436,6 +436,10 @@ pre[class*="language-"] {
   background-color: #b7e7f0 !important;
 }
 
+[data-cy="sidebar"], [aria-label="Pages"] {
+  background-color: #353a5d !important;
+}
+
 /* Cypress API Plugin */
 [id="api-view"] {
   background-color: var(--main-background-color) !important;
