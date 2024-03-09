@@ -5,8 +5,8 @@ import cssVariables from "postcss-css-variables";
 const convertCssVariables = (mycss) =>
   postcss([cssVariables()]).process(mycss).css;
 const getWindowHead = () => Cypress.$(parent.window.document.head);
-const isThemeLoaded = ($head) => $head.find("#cypress-themes").length > 0;
-const getThemesFolder = () => "node_modules/cypress-themes/dist/themes";
+const isThemeLoaded = ($head) => $head.find("#cypress-runner-themes").length > 0;
+const getThemesFolder = () => "node_modules/cypress-runner-themes/dist/themes";
 // const getThemesFolder = () => "src/themes"; // Enable for local development
 
 const CURRENT_THEMES = ["colorblind", "dark", "light"];
@@ -37,7 +37,7 @@ const loadTheme = () => {
         .then(convertCssVariables)
         .then((css) => {
           $head.append(
-            `<style type="text/css" id="cypress-themes">\n${css}</style>`
+            `<style type="text/css" id="cypress-runner-themes">\n${css}</style>`
           );
         });
     } else {

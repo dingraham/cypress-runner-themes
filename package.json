@@ -1,5 +1,5 @@
 {
-  "name": "cypress-themes",
+  "name": "cypress-runner-themes",
   "version": "1.0.0",
   "description": "Alternative themes for the Cypress Test Runner",
   "main": "src/index.js",
@@ -29,10 +29,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dingraham/cypress-themes.git"
+    "url": "git+https://github.com/dingraham/cypress-runner-themes.git"
   },
   "bugs": {
-    "url": "https://github.com/dingraham/cypress-themes/issues"
+    "url": "https://github.com/dingraham/cypress-runner-themes/issues"
   },
-  "homepage": "https://github.com/dingraham/cypress-themes#readme"
+  "homepage": "https://github.com/dingraham/cypress-runner-themes#readme"
 }

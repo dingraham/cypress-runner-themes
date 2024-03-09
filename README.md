@@ -1,4 +1,4 @@
-# cypress-themes
+# cypress-runner-themes
 
 Alternative themes for the Cypress Test Runner for Cypress v10+.
 
@@ -41,7 +41,7 @@ If there is another case that isn't covered please let me know and I will add a 
 
 ## Install
 ```bash
-npm install --save-dev cypress-themes
+npm install --save-dev cypress-runner-themes
 ```
 
 ## Use
@@ -58,7 +58,7 @@ The acceptable theme values are `dark`, `light`, and `colorblind`.
 After, require the plugin in your `support/e2e.js` file
 
 ```javascript
-import "cypress-themes";
+import "cypress-runner-themes";
 ```
 
 Finally, the next time you run a test the theme will be applied. 
