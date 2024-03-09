@@ -55,10 +55,10 @@ The acceptable theme values are `dark`, `light`, and `colorblind`.
 }
 ```
 
-After, require the plugin in your `support/index.js` file
+After, require the plugin in your `support/e2e.js` file
 
 ```javascript
-require("cypress-themes");
+import "cypress-themes";
 ```
 
 Finally, the next time you run a test the theme will be applied. 

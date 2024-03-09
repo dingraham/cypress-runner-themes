@@ -22,6 +22,9 @@
     "postcss": "^8.4.35",
     "postcss-css-variables": "^0.19.0"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "author": "David Ingraham",
   "license": "MIT",
   "repository": {
