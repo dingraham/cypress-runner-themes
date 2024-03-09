@@ -6,8 +6,8 @@ const convertCssVariables = (mycss) =>
   postcss([cssVariables()]).process(mycss).css;
 const getWindowHead = () => Cypress.$(parent.window.document.head);
 const isThemeLoaded = ($head) => $head.find("#cypress-themes").length > 0;
-// const getThemesFolder = () => 'node_modules/cypress-themes/dist/themes';
-const getThemesFolder = () => "src/themes"; // Enable for local development
+const getThemesFolder = () => "node_modules/cypress-themes/dist/themes";
+// const getThemesFolder = () => "src/themes"; // Enable for local development
 
 const CURRENT_THEMES = ["colorblind", "dark", "light"];
 
@@ -32,6 +32,7 @@ const loadTheme = () => {
         `${currentTheme.toLowerCase()}.css`
       );
 
+      // Append css
       cy.readFile(themeFilename, { log: false })
         .then(convertCssVariables)
         .then((css) => {

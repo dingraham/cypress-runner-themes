@@ -45,7 +45,7 @@ npm install --save-dev cypress-themes
 ```
 
 ## Use
-To enable any of the themes, set the `theme` env var in your `cypress.config.js` file
+To enable any of the themes, set the `theme` env var in your `cypress.config.js` file.
 
 The acceptable theme values are `dark`, `light`, and `colorblind`.
 
@@ -61,6 +61,11 @@ After, require the plugin in your `support/index.js` file
 require("cypress-themes");
 ```
 
+Finally, the next time you run a test the theme will be applied. 
+
+Unfortunately, there's no hook to inject the theme into the test runner without running a test first. Hoping that changes in the future.
+
+
 ## Development
 For local development, install all dependencies (`npm install`) and change the `getThemesFolder` under `src/utils` to point toward the local css files.
 
@@ -70,7 +75,7 @@ const getThemesFolder = () => "src/themes"; // Enable for local development
 
 Next, change the `theme` env var within the `cypress.config.js` to whatever you are testing.
 
-Finally, run the cypress test runner `npm run cy:open`
+Finally, run the cypress test runner `npm run cy:open`.
 
 ## TODO 
 - [ ] Apply theme on runner load, not before a test begins
