@@ -6,7 +6,7 @@ const convertCssVariables = (mycss) =>
   postcss([cssVariables()]).process(mycss).css;
 const getWindowHead = () => Cypress.$(parent.window.document.head);
 const isThemeLoaded = ($head) => $head.find("#cypress-runner-themes").length > 0;
-const getThemesFolder = () => "node_modules/cypress-runner-themes/dist/themes";
+const getThemesFolder = () => "node_modules/cypress-runner-themes/src/themes";
 // const getThemesFolder = () => "src/themes"; // Enable for local development
 
 const CURRENT_THEMES = ["colorblind", "dark", "light"];
