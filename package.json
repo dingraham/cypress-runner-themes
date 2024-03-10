@@ -1,6 +1,6 @@
 {
   "name": "cypress-runner-themes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Alternative themes for the Cypress Test Runner",
   "main": "src/index.js",
   "scripts": {
