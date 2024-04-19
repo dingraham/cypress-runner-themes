@@ -6,18 +6,19 @@ const convertCssVariables = (mycss) =>
   postcss([cssVariables()]).process(mycss).css;
 const getWindowHead = () => Cypress.$(parent.window.document.head);
 const isThemeLoaded = ($head) => $head.find("#cypress-runner-themes").length > 0;
-const getThemesFolder = () => "node_modules/cypress-runner-themes/src/themes";
-// const getThemesFolder = () => "src/themes"; // Enable for local development
+// const getThemesFolder = () => "node_modules/cypress-runner-themes/src/themes";
+const getThemesFolder = () => "src/themes"; // Enable for local development
 
-const CURRENT_THEMES = ["colorblind", "dark", "light"];
+const CURRENT_THEMES = ["colorblind", "dark", "halloween", "light"];
 
 const loadTheme = () => {
   return () => {
     // Check if theme is loaded already
     const $head = getWindowHead();
-    if (isThemeLoaded($head)) {
-      return;
-    }
+    // TODO: Uncomment before merge - for debugging locally
+    // if (isThemeLoaded($head)) {
+    //   return;
+    // }
 
     const currentTheme = Cypress.env("theme");
 

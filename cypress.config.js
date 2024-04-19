@@ -8,7 +8,7 @@ module.exports = defineConfig({
     },
   },
   env:{
-    theme: "dark", // [dark/light/colorblind]
+    theme: "halloween", // [dark/light/colorblind/halloween]
     API_NINJA_API_KEY: "no8IA/8VjG09kcDmXVBiAA==zbtNeVLImXzUbJHQ",
   },
 });
