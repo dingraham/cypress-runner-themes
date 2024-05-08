@@ -19,7 +19,7 @@ const loadTheme = () => {
       return;
     }
 
-    const currentTheme = Cypress.env("theme");
+    let currentTheme = Cypress.env("theme");
 
     // Support alternative spellings
     if (currentTheme === "colourblind") {
