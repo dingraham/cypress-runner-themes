@@ -10,7 +10,7 @@ const isThemeLoaded = ($head) =>
 const getThemesFolder = () => "node_modules/cypress-runner-themes/src/themes";
 // const getThemesFolder = () => "src/themes"; // Enable for local development
 
-const CURRENT_THEMES = ["colorblind", "dark", "halloween", "light"];
+const CURRENT_THEMES = ["colorblind", "dark", "light"];
 
 const loadTheme = () => {
   return () => {
