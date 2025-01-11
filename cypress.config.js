@@ -7,7 +7,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
-  env:{
+  env: {
     theme: "dark", // [dark/light/colorblind]
     API_NINJA_API_KEY: "no8IA/8VjG09kcDmXVBiAA==zbtNeVLImXzUbJHQ",
   },

@@ -13,9 +13,9 @@
     "theme"
   ],
   "devDependencies": {
-    "cypress": "^13.6.6",
+    "cypress": "^13.17.0",
     "cypress-plugin-api": "^2.11.1",
-    "prettier": "3.2.5"
+    "prettier": "3.4.1"
   },
   "dependencies": {
     "path": "^0.12.7",
