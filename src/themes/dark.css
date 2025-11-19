@@ -115,3 +115,31 @@ body,
 [data-cy="playground-selector"] {
   background-color: var(--highlight-background-color);
 }
+
+/* Cypress 15+ Dark Theme Overrides */
+#spec-runner-header,
+[data-cy="aut-url"],
+.reporter .spec-container,
+.reporter .spec-file-name,
+.reporter .collapsible-header-wrapper,
+.reporter .collapsible-header-wrapper.runnable-wrapper,
+.reporter .collapsible-header-inner,
+.reporter .collapsible-header-text,
+.reporter .collapsible,
+.reporter .collapsible.is-open {
+  background-color: var(--main-background-color) !important;
+}
+
+/* Maintain purple border highlighting for aut-url and studio button */
+[data-cy="aut-url"],
+[data-cy="studio-button"],
+.launch-studio-button {
+  border-color: var(--border-color) !important;
+}
+
+[data-cy="aut-url"]:focus,
+[data-cy="studio-button"]:focus,
+.launch-studio-button:focus {
+  border-color: var(--text-color) !important;
+  outline: none !important;
+}
