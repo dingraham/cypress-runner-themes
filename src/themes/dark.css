@@ -119,6 +119,7 @@ body,
 /* Cypress 15+: the reporter paints explicit navy backgrounds on test/suite
    rows, hook headers, and open collapsibles instead of inheriting from
    .runnable. Override them back to the theme palette. */
+#spec-runner-header,
 .reporter .runnable.suite > .collapsible > .runnable-wrapper,
 .reporter
   .runnable.suite
@@ -172,4 +173,18 @@ body,
   .collapsible-header:focus-visible
   .launch-studio-button {
   background-color: var(--highlight-background-color) !important;
+}
+
+/* Maintain purple border highlighting for aut-url and studio button */
+[data-cy="aut-url"],
+[data-cy="studio-button"],
+.launch-studio-button {
+  border-color: var(--border-color) !important;
+}
+
+[data-cy="aut-url"]:focus,
+[data-cy="studio-button"]:focus,
+.launch-studio-button:focus {
+  border-color: var(--text-color) !important;
+  outline: none !important;
 }

@@ -443,6 +443,28 @@ pre[class*="language-"] {
   background-color: #353a5d !important;
 }
 
+/* Cypress 15+ Dark Theme Overrides - Target specific elements with dark backgrounds */
+#spec-runner-header,
+[data-cy="aut-url"],
+.reporter .spec-container,
+.reporter .spec-file-name,
+.reporter .collapsible-header-wrapper,
+.reporter .collapsible-header-wrapper.runnable-wrapper,
+.reporter .collapsible-header-inner,
+.reporter .collapsible-header-text,
+.reporter .collapsible,
+.reporter .collapsible.is-open {
+  background-color: var(--main-background-color) !important;
+}
+
+/* Launch Studio button - keep it styled but with light theme colors */
+.reporter .launch-studio-button,
+.reporter button.launch-studio-button {
+  background-color: var(--spec-list-color) !important;
+  border-color: var(--spec-list-color) !important;
+  color: white !important;
+}
+
 /* Cypress API Plugin */
 [id="api-view"] {
   background-color: var(--main-background-color) !important;
