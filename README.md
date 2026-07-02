@@ -1,84 +1,166 @@
 # cypress-runner-themes
 
-Alternative themes for the Cypress Test Runner for Cypress v10+.
+Alternative themes for the Cypress Test Runner (Cypress v10+, tested on Cypress 15).
 
-Currently supports **dark-mode**, **light-mode** and **colorblind-mode**.
+Built-in base themes: **dark**, **fall** and **light**. If no theme is set you get the
+default Cypress runner. A **colorblind** modifier can be layered on top of any
+base theme, and you can supply your own **custom theme** CSS.
 
-Heavily inspired by [cypress-dark](https://github.com/bahmutov/cypress-dark) and [cypress-light-theme](https://github.com/marktnoonan/cypress-light-theme) but all in one package.
+Heavily inspired by [cypress-dark](https://github.com/bahmutov/cypress-dark) and
+[cypress-light-theme](https://github.com/marktnoonan/cypress-light-theme), but all in
+one package.
 
-Feel free to suggest/create additional themes.
-As the test runner changes over-time, the themes may break unexpectedly. For any issues please let us know. Thanks!
-
-## Themes
-
-### Dark
-![](images/dark-test.png)
-![](images/dark-runs.png)
-
-### Light
-![](images/light-test.png)
-![](images/light-runs.png)
-
-### Colorblind (Red/Green)
-
-The three main types of color blindness are
-- Deutan (red/green)
-- Protan (red/green)
-- Tritan (blue/green and yellow/red)
-
-By replacing green with yellow, now the Cypress test results will show up as
-- Yellow (passing)
-- Red (failing)
-- Blue (skipped)
-
-This color combination addresses those with Deutan and Protan color-blindness. 
-Those with sensitivity to red/yellow should keep the default Cypress test result colors.
-
-If there is another case that isn't covered please let me know and I will add a theme for it. 
-
-![](images/colorblind-test.png)
-![](images/colorblind-runs.png)
+As the test runner changes over time, themes may break unexpectedly. If you hit an
+issue please [let us know](https://github.com/dingraham/cypress-runner-themes/issues).
 
 ## Install
+
 ```bash
 npm install --save-dev cypress-runner-themes
 ```
 
 ## Use
-To enable any of the themes, set the `theme` env var in your `cypress.config.js` file.
 
-The acceptable theme values are `dark`, `light`, and `colorblind`.
+**1. Configure the theme** in `cypress.config.js` under the top-level `expose` block
+(Cypress 15.10+):
 
-```json
-"env": {
-    "theme": "dark",
-}
+```js
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  expose: {
+    theme: "dark", // "dark" | "fall" | "light"
+    colorblind: false, // optional modifier, layers on any base theme
+    // customTheme: "cypress/my-theme.css", // optional: your own CSS file
+  },
+  e2e: {
+    /* ... */
+  },
+});
 ```
 
-After, require the plugin in your `support/e2e.js` file
+**2. Import the plugin** in your `cypress/support/e2e.js` file:
 
 ```javascript
 import "cypress-runner-themes";
 ```
 
-Finally, the next time you run a test the theme will be applied. 
+That's it — the theme is applied when a spec loads.
 
-Unfortunately, there's no hook to inject the theme into the test runner without running a test first. Hoping that changes in the future.
+> **Legacy config:** `Cypress.env("theme")` is still supported as a fallback, but
+> `Cypress.env()` is [deprecated in Cypress 15.10+](https://github.com/dingraham/cypress-runner-themes/issues/5).
+> Prefer the `expose` block above. If you set both, `expose` wins.
 
+## Themes
 
-## Development
-For local development, install all dependencies (`npm install`) and change the `getThemesFolder` under `src/utils` to point toward the local css files.
+### Dark
 
-```javascript
-const getThemesFolder = () => "src/themes"; // Enable for local development
+![](images/dark-test.png)
+![](images/dark-runs.png)
+
+### Fall
+
+![](images/fall-test.png)
+![](images/fall-runs.png)
+
+### Light
+
+![](images/light-test.png)
+![](images/light-runs.png)
+
+### Colorblind (Red/Green) modifier
+
+The three main types of colour blindness are:
+
+- Deutan (red/green)
+- Protan (red/green)
+- Tritan (blue/green and yellow/red)
+
+By replacing green with yellow, Cypress test results show up as:
+
+- Yellow (passing)
+- Red (failing)
+- Blue (skipped)
+
+This addresses Deutan and Protan colour-blindness. Those with sensitivity to
+red/yellow should keep the default Cypress result colours.
+
+Enable it as a modifier on top of any base theme:
+
+```js
+expose: {
+  theme: "dark",
+  colorblind: true,
+}
 ```
 
-Next, change the `theme` env var within the `cypress.config.js` to whatever you are testing.
+> Setting `theme: "colorblind"` on its own still works for backwards compatibility
+> (it applies the colorblind modifier over the default runner, with no base theme).
+> Note: the gold pass colour is tuned for dark reporter backgrounds — pair the
+> modifier with the `dark` base (or the default runner) rather than `light`.
 
-Finally, run the cypress test runner `npm run cy:open`.
+![](images/colorblind-test.png)
+![](images/colorblind-runs.png)
 
-## TODO 
-- [ ] Apply theme on runner load, not before a test begins
-- [ ] Support cypress-plugin-api
-- [ ] Remove "Colorblind" as explicit theme and allow toggle ability within runner
-- [ ] Migrate over the fun Halloween mode from [cypress-dark](https://github.com/bahmutov/cypress-dark)
+## Custom themes
+
+Point `customTheme` at a CSS file in your project to use your own styles as the base
+layer. The `colorblind` modifier still layers on top if enabled.
+
+```js
+expose: {
+  customTheme: "cypress/my-theme.css",
+  colorblind: false,
+}
+```
+
+See `src/themes/*.css` for the selectors the built-in themes target.
+
+## How it works & limitations
+
+The plugin injects a `<style>` tag into the Test Runner's UI. Built-in themes are
+bundled as strings, so they apply as soon as a spec loads — no filesystem lookup, and
+it works under npm, pnpm, Yarn PnP and monorepos. Custom themes are read from disk
+with `cy.readFile`, so they apply within a `before` hook.
+
+There is no Cypress hook to theme the runner _before any spec is opened_, so the very
+first paint of the app is unthemed until a spec loads.
+
+## Development
+
+No source edits are needed for local development — the demo project in this repo
+imports the theme source directly.
+
+1. `npm install`
+2. Set the theme you want to preview in `cypress.config.js` (`expose.theme`).
+3. `npm run cy:open` and open any spec in `cypress/e2e/` (there are intentionally
+   passing, failing and skipped specs so you can see result colours).
+
+If you edit any `src/themes/*.css` file, regenerate the bundled strings:
+
+```bash
+npm run build:themes
+```
+
+Formatting: `npm run format` (or `npm run format:check` in CI).
+
+### API demo spec
+
+`cypress/e2e/test-api-plugin.cy.js` demonstrates theming alongside
+[cypress-plugin-api](https://www.npmjs.com/package/cypress-plugin-api). It calls an
+external API and needs a key provided via environment variable (never commit it):
+
+```bash
+export CYPRESS_API_NINJA_API_KEY="your-key"
+```
+
+Cypress maps `CYPRESS_`-prefixed env vars to `Cypress.env("API_NINJA_API_KEY")`.
+
+## Roadmap
+
+- [x] Migrate config from `Cypress.env()` to `Cypress.expose()`
+- [x] Colorblind as a toggle/modifier combinable with any base theme
+- [x] Apply the theme on spec load rather than after the first test
+- [x] Custom theme support
+- [ ] Migrate the fun Halloween mode from [cypress-dark](https://github.com/bahmutov/cypress-dark)
+- [ ] More built-in themes (Dracula, high-contrast, Solarized, Nord, …)

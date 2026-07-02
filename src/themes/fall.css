@@ -1,11 +1,19 @@
 :root {
-  --main-background-color: #121212;
-  --highlight-background-color: #222222;
-  --text-color: #bb86fc;
-  --light-text-color: #bb86fc;
-  --header-color: #a62ac9;
-  --border-color: #bb86fc;
-  --hover-text-color: #bb86fc;
+  /* "Fall" — an autumn
+     scene: fallen-leaf brown page, cream body text (~13:1 contrast),
+     golden-leaf amber for emphasis, pumpkin on the header bar, russet
+     borders. Hovers warm up rather than lighten, and errors live in brick
+     red instead of Cypress's cold purple. Every hue is warm — the rules at
+     the bottom of this file repaint the runner chrome the dark template
+     normally leaves at Cypress's navy, so no cold tones remain. */
+  --main-background-color: #2a2118;
+  --highlight-background-color: #3d2f1e;
+  --text-color: #f5e9d4;
+  --accent-color: #ffb454;
+  --light-text-color: #e3d2b3;
+  --header-color: #f28c28;
+  --border-color: #c46a2b;
+  --hover-text-color: #6b4a12;
 }
 
 /* Test runner main background */
@@ -88,6 +96,30 @@ body,
   color: var(--text-color) !important;
 }
 
+/* Readability: the runner paints its own dim grays on command-log details
+   (URLs, request labels, durations) that disappear on a dark background.
+   Force reporter text to the theme text color, sparing result-state colors
+   and error panels — same approach as the light theme. */
+.reporter
+  *:not(button):not([class*="command-state"]):not(.runnable-err):not(
+    .test-err-code-frame *
+  ) {
+  color: var(--text-color) !important;
+}
+
+/* Amber-gold as the emphasis color: test titles, bold text, stat counts. */
+.reporter .runnable-title,
+.reporter strong,
+.reporter .stats li .num {
+  color: var(--accent-color) !important;
+}
+
+/* Selecting text glows gold instead of the browser default blue. */
+.reporter ::selection {
+  background-color: var(--border-color) !important;
+  color: #fff8ec !important;
+}
+
 .reporter {
   border-right-width: 1px;
   border-color: var(--border-color) !important;
@@ -109,7 +141,7 @@ body,
 }
 
 .text-indigo-500 {
-  color: var(--text-color) !important;
+  color: var(--accent-color) !important;
 }
 
 [data-cy="playground-selector"] {
@@ -172,4 +204,35 @@ body,
   .collapsible-header:focus-visible
   .launch-studio-button {
   background-color: var(--highlight-background-color) !important;
+}
+
+/* All in on fall: repaint the chrome the dark template leaves at Cypress's
+   cold navy — sidebar, error panels and code frames — so the whole runner
+   sits in one warm scene. */
+[data-cy="sidebar"],
+[aria-label="Pages"] {
+  background-color: #211914 !important;
+}
+
+/* Errors live in brick red — autumn maple — instead of Cypress's purple.
+   Error message text keeps the runner's own colors (it is excluded from the
+   text catch-all above), which stay readable on the warm background. */
+.reporter .runnable-err,
+.reporter .runnable-err-header {
+  background-color: #42221c !important;
+}
+
+.reporter .runnable-err-header,
+.reporter .runnable-err-header *,
+.reporter .runnable-err-name {
+  color: #ff9b85 !important;
+}
+
+.reporter .test-err-code-frame,
+.reporter .test-err-code-frame pre[class*="language-"] {
+  background-color: #1f1812 !important;
+}
+
+.reporter .test-err-code-frame .runnable-err-file-path {
+  background-color: #34281c !important;
 }
