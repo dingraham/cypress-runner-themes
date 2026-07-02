@@ -1,8 +1,9 @@
 :root {
   --pass-color: #d4af37;
   --light-pass-color: #f6db82;
-  --fail-color: #ad017c;
-  --light-fail-color: #e76ea4;
+  /* Failing tests intentionally keep Cypress's default red: for deutan/protan
+     vision it darkens toward brown while the gold pass colour stays bright,
+     so the two separate on both hue and lightness. */
 }
 
 /* Pass */
@@ -65,4 +66,14 @@ svg[data-cy-run-status="PASSED"] > circle {
 /** Cypress API Plugin */
 .text-cy-green {
   color: var(--pass-color) !important;
+}
+
+/* The base themes paint pass borders with high-specificity !important rules
+   (e.g. `.reporter .runnable.runnable-passed > div > .runnable-wrapper` in the
+   light theme). Match that specificity here — the modifier <style> is injected
+   after the base theme, so at equal specificity these win. */
+.reporter .command-state-passed,
+.reporter .runnable.runnable-passed > div > .runnable-wrapper,
+.reporter .runnable.runnable-passed > div > .runnable-instruments {
+  border-color: var(--pass-color) !important;
 }

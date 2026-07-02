@@ -1,7 +1,9 @@
 :root {
-  --main-background-color: #f8f9ff;
-  --highlight-background-color: #e1e3ed;
-  --wrapper-background-color: #fff;
+  /* Soft grey page with slightly lighter rows — deliberately not pure white,
+     which reads as glare on large reporter panels. */
+  --main-background-color: #eef0f6;
+  --highlight-background-color: #dde0ea;
+  --wrapper-background-color: #f7f8fb;
   --spec-list-color: #2f3ab0;
   --passed-color: #00814d;
   --text-color: #2e3247;
@@ -466,4 +468,82 @@ pre[class*="language-"] {
 /* Cypress API Plugin */
 [id="api-view"] {
   background-color: var(--main-background-color) !important;
+}
+
+/* Cypress 15+: the reporter paints explicit dark backgrounds on test/suite
+   rows, hook headers, and open collapsibles instead of inheriting from
+   .runnable. Override them back to the theme palette. */
+.reporter .runnable.suite > .collapsible > .runnable-wrapper,
+.reporter
+  .runnable.suite
+  > .collapsible
+  > .runnable-wrapper
+  .collapsible-header-inner,
+.reporter .runnable.test > .collapsible .runnable-wrapper,
+.reporter
+  .runnable.test
+  > .collapsible
+  .runnable-wrapper
+  .collapsible-header-inner,
+.reporter .runnable.test > .collapsible.is-open,
+.reporter
+  .runnable.test
+  > .collapsible.is-open
+  .runnable-wrapper
+  .collapsible-header-inner,
+.reporter .test > .is-open > .collapsible-header-wrapper,
+.reporter .spec-container {
+  /* Rows sit slightly lighter than the page grey for hierarchy */
+  background-color: var(--wrapper-background-color) !important;
+}
+
+.reporter
+  .runnable
+  .runnable-wrapper
+  .collapsible-header:hover
+  .collapsible-header-inner,
+.reporter
+  .runnable
+  .runnable-wrapper
+  .collapsible-header:focus-visible
+  .collapsible-header-inner,
+.reporter
+  .runnable.test
+  > .collapsible
+  .runnable-wrapper:hover
+  .collapsible-header-inner,
+.reporter
+  .runnable.test
+  > .collapsible
+  .runnable-wrapper
+  .collapsible-header:focus-visible
+  .collapsible-header-inner,
+.reporter .hooks-container .hook-header:hover,
+.reporter .hooks-container .hook-header:focus-visible,
+.reporter .hooks-container .hook-header .hook-open-in-ide,
+.reporter
+  .runnable
+  .runnable-wrapper
+  .collapsible-header:focus-visible
+  .launch-studio-button {
+  background-color: var(--highlight-background-color) !important;
+}
+
+/* Cypress 15+ gives the error panel and its "AssertionError" header their own
+   dark backgrounds (#2C2036 / #3A243B); match the light error styling. */
+.reporter .runnable-err,
+.reporter .runnable-err-header {
+  background-color: #fbeff1 !important;
+}
+
+.reporter .runnable-err-header,
+.reporter .runnable-err-header *,
+.reporter .runnable-err-name {
+  color: #c62b49 !important;
+}
+
+/* Spec name pill in the reporter header. In Cypress 15 it's a bare
+   .spec-file-name class (not scoped under .reporter) with a dark background. */
+.spec-file-name {
+  background-color: var(--highlight-background-color) !important;
 }
